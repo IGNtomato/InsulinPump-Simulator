@@ -7,9 +7,13 @@ The code I used for my Grade 8 science fair project where I created a model of a
  */
 
   int pumpPin = 11; // pin used to control pump
+  
   int pumpSpeed = 255; // pump speed, value between 0-255
+  
  int conductivity;    // conductivity value, this will be 0-1023 from analogRead
+ 
  int threshold = 450; // conductivity threshold at which pump should turn off
+ 
  int measure_error = 0; // The difference between threshold and and conductivity
 
  int total = 0; /* this is to average out the readings*/
