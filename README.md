@@ -1,25 +1,22 @@
 # InsulinPump-Simulator
 The code I used for my Grade 8 science fair project where I created a model of an artifical pancreas/insulin pump.
 
-  /*
+ ```cpp
+/*
  * Artificial Pancreas model code
  * 
  */
 
-  int pumpPin = 11; // pin used to control pump
-  
-  int pumpSpeed = 255; // pump speed, value between 0-255
-  
- int conductivity;    // conductivity value, this will be 0-1023 from analogRead
- 
- int threshold = 450; // conductivity threshold at which pump should turn off
- 
- int measure_error = 0; // The difference between threshold and and conductivity
+int pumpPin = 11; // pin used to control pump
+int pumpSpeed = 255; // pump speed, value between 0-255
+int conductivity;    // conductivity value, this will be 0-1023 from analogRead
+int threshold = 450; // conductivity threshold at which pump should turn off
+int measure_error = 0; // The difference between threshold and and conductivity
 
- int total = 0; /* this is to average out the readings*/
- int average = 0; 
+int total = 0; /* this is to average out the readings*/
+int average = 0; 
 
- int lastSpeedLevel = 0;   // Variable to remember the last speed level
+int lastSpeedLevel = 0;   // Variable to remember the last speed level
 int lastMeasureError = 0; // Variable to remember the last measure_error for buffering
 
 // Define the gap between the speed levels (5-point gap = 10 points of buffer)
@@ -27,8 +24,8 @@ int gapLow = 5;
 
 void setup() {
   // put your setup code here, to run once:
-    pinMode(pumpPin,OUTPUT); // set pump pin as output
-    Serial.begin(9600);      // initialize serial communication
+  pinMode(pumpPin,OUTPUT); // set pump pin as output
+  Serial.begin(9600);      // initialize serial communication
 }
 
 void loop() {
@@ -72,7 +69,7 @@ void loop() {
       lastSpeedLevel = 0;  // Update lastSpeedLevel
     }
   }
-    lastMeasureError = measure_error;
+  lastMeasureError = measure_error;
   // Print average and error for debugging
   Serial.print("Average: "); // Print the conductivity reading
   Serial.print(average);
